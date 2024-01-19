@@ -1,6 +1,6 @@
 # Tech Blog
 
-Website: URL
+Website: https://tech-blog-qlxn.onrender.com/
 ![Screenshot](assets/images/png)
 
 ## Description
