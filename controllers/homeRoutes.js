@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const { Blog, User } = require('../models');
+const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    // Get all blogs and JOIN with user data
-    const blogData = await Blog.findAll({
+    // Get all posts and JOIN with user data
+    const postData = await Post.findAll({
       include: [
         {
           model: User,
@@ -15,34 +15,38 @@ router.get('/', async (req, res) => {
     });
 
     // Serialize data so the template can read it
-    const blogs = blogData.map((blog) => blog.get({ plain: true }));
+    const posts = postData.map((post) => post.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      blogs, 
-      logged_in: req.session.logged_in 
+    res.render('homepage', {
+      posts,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/dashboard/:id', async (req, res) => {
+router.get('/post/:id', async (req, res) => {
   try {
-    const blogData = await Blog.findByPk(req.params.id, {
+    const postData = await Post.findByPk(req.params.id, {
       include: [
         {
           model: User,
           attributes: ['name'],
         },
+        {
+          model: Comment,
+          include: [User],
+        },
       ],
     });
 
-    const blog = blogData.get({ plain: true });
+    const post = postData.get({ plain: true });
 
-    res.render('blog', {
-      ...blog,
-      logged_in: req.session.logged_in
+    res.render('post', {
+      ...post,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -54,15 +58,21 @@ router.get('/dashboard', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Blog }],
+      attributes: {
+        exclude: ['password'],
+      },
+      include: [
+        {
+          model: Post,
+        },
+      ],
     });
 
     const user = userData.get({ plain: true });
 
-    res.render('form', {
+    res.render('dashboard', {
       ...user,
-      logged_in: true
+      logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);
