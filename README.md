@@ -42,9 +42,9 @@ When the user click on a post, the page will look like the image below where the
 
 N/A
 
-## Codes Used
+## Errors Faced/ Need Fixing
 
-All codes inspired from module 12.
+The comment does not work and doesn't save the user's input. I believe it may be due to the codes in js that still needs some work. I am still trying to learn and understand the issue so hoping I can fix that!
 
 ## License
 
