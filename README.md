@@ -1,16 +1,11 @@
 # Tech Blog
 
 Website: https://tech-blog-qlxn.onrender.com/
-![Screenshot](assets/images/png)
+![Screenshot](public/images/website.png)
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+This is a personal tech blog forum made for anyone to easily share their own coding journey for others to see! Through this project, I was able to learn how to better route my files and learn how forums work.
 
 ## Table of Contents (Optional)
 
@@ -23,66 +18,61 @@ If your README is long, add a table of contents to make it easy for users to fin
 
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+Only installations needed is `npm install` for the node modules. 
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+The image shown is how the site will look when you first sign in. It is also what will display when you click on the title, "Tech Blog".
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+![Screenshot](public/images/website.png)
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+When you are signed in and click on dashboard, you will be directed to this page shown below where the user can create their posts.
+
+![Screenshot](public/images/dashboard.png)
+
+When the user first enter the page and click on login, the page will display the image shown below where the user can sign up or log in if they already have an account.
+
+![Screenshot](public/images/login.png)
+
+When the user click on a post, the page will look like the image below where they can view any comments made to the post.
+
+![Screenshot](public/images/post.png)
 
 ## Credits
 
-List your collaborators, if any, with links to their GitHub profiles.
-
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-
-If you followed tutorials, include links to those here as well.
+N/A
 
 ## Codes Used
 
-The code for the challenge can be found in the following file:
-
-- [index.html](/src/index.html): Contains the HTML structure of the landing page.
-
-- [style.css](/src/style.css): Contains the CSS styles for the landing page.
-
-- [script.js](/src/script.js): Contains the Javascript code of the landing page.
-
---------------------------
-
-- [file name](/src/file) LINE #: Based on the work of [AUTHOR](URL)
-
-```
-INSERT CODES HERE
-```
+All codes inspired from module 12.
 
 ## License
 
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
-
----
-
-🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
+N/A
 
 ## Badges
 
-![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
-
-Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
+N/A
 
 ## Features
 
-If your project has a lot of features, list them here.
+N/A
 
 ## How to Contribute
 
-If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
+N/A
 
 ## Tests
 
-Go the extra mile and write tests for your application. Then provide examples on how to run them here.
+To test, create a dotenv file with these info inputted:
+```
+DB_NAME='techblog_db'
+DB_USER='root'
+DB_PASSWORD='your password here'
+```
+
+Then create the database by directing into the db file in the command line: `cd db` then type `mysql -u root -p` and input your password.
+
+In mysql, type `source schema.sql` and you should be connected!
+
+After that, direct out of the db file by `cd ..` and type `node server.js` and you can see the site in `localhost:3001`
