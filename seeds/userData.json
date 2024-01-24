@@ -1,7 +1,8 @@
 [
-  {
-    "name": "Greg",
-    "email": "greg@hotmail.com",
-    "password": "password12345"
-  }
-]
+    {
+      "name": "Greg",
+      "email": "greg@hotmail.com",
+      "password": "password12345"
+    }
+  ]
+  
